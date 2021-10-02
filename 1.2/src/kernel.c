@@ -1,4 +1,5 @@
-#include "mini_uart.h"
+#include "uart.h"
+#include "peripherals/uart.h"
 
 void kernel_main(void)
 {
