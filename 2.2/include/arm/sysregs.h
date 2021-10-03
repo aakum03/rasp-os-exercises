@@ -39,4 +39,9 @@
 #define SPSR_EL1h			(5 << 0)
 #define SPSR_VALUE			(SPSR_MASK_ALL | SPSR_EL1h)
 
+// CPACR_EL1, Architectural Feature Access Control Register (Page 2411)
+// Set Bits 21:20 to never trap accesses to the SVE, Advanced SIMD, and floating-point registers 
+
+#define CPACR_EL1_VALUE (3 << 20)
+
 #endif

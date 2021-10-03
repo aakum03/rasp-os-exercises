@@ -27,6 +27,9 @@ master:
 	ldr	x0, =SPSR_VALUE
 	msr	spsr_el3, x0
 
+	ldr x0, =CPACR_EL1_VALUE 	// Set CPACR_EL1_VALUE to never trap
+	msr cpacr_el1, x0
+
 	adr	x0, el1_entry		
 	msr	elr_el3, x0
 
