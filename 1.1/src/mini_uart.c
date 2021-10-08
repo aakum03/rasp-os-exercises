@@ -49,10 +49,11 @@ void uart_init ( void )
 	put32(AUX_MU_IER_REG,0);                //Disable receive and transmit interrupts
 	put32(AUX_MU_LCR_REG,3);                //Enable 8 bit mode
 	put32(AUX_MU_MCR_REG,0);                //Set RTS line to be always high
+
+	unsigned int buad_rate = 9600;
+	unsigned int x = ((250000000/buad_rate)/8)-1; // Formula for buad reg
 	
-	unsigned int x = ((250000000/9600)/8)-1;
-	
-	put32(AUX_MU_BAUD_REG,x);             //Set baud rate to 9600
+	put32(AUX_MU_BAUD_REG,x);             	//Set baud rate to 9600
 
 	put32(AUX_MU_CNTL_REG,3);               //Finally, enable transmitter and receiver
 }
